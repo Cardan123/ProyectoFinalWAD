@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="card border-primary mb-3">
+                <div class="card-header">
+                    <h2 class="text-primary text-center">
+                        Datos de Vendedor
+                    </h2>
+                </div>
+                <div class="card-body text-primary">
+                    <div class="table-responsive">
+                        <f:view>
+                            <h:form id="frmVendedorForm">
+                                <h:inputHidden id="accion" value="#{vendedorMB.accion}"/>
+                                <p:panelGrid columns="3" class="form-group row">
+
+                                    <p:outputLabel for="txtNombreVendedor" id="lblNombreVendedor" class="form-label" value="Nombre Vendedor"/>
+                                    <p:inputText id="txtNombreVendedor" class="form-control" value="#{vendedorMB.dto.nombreVendedor}" required="true"/>
+                                    <p:message for="txtNombreVendedor" />
+
+                                    <p:outputLabel for="txtEmailVendedor" id="lblEmailVendedor" class="form-label" value="Email Vendedor"/>
+                                    <p:inputText id="txtEmailVendedor" class="form-control" value="#{vendedorMB.dto.emailVendedor}" required="true"/>
+                                    <p:message for="txtEmailVendedor" />
+
+                                    <p:outputLabel for="txtIdAgencia" class="form-label" value="Clave Agencia"/>
+                                    <p:selectOneMenu value="#{vendedorMB.dto.idAgen}" id="txtIdAgencia"
+                                                     class="form-control">
+                                        <f:selectItems value="#{vendedorMB.listaAgencias}"
+                                                       var="mar"
+                                                       itemLabel="#{mar.nombreAgencia}"
+                                                       itemValue="#{mar.idAgencia}"/>
+
+                                    </p:selectOneMenu>
+                                    <p:message for="txtIdAgencia" />
+
+                                    <p:commandButton action="#{vendedorMB.add()}"
+                                                     value="Guardar"
+                                                     class="btn btn-outline-primary"
+                                                     rendered="#{vendedorMB.modoCrear}"/>
+                                    <p:commandButton action="#{vendedorMB.update()}"
+                                                     value="Actualizar"
+                                                     class="btn btn-outline-success"
+                                                     rendered="#{vendedorMB.modoActualizar}"/>
+
+
+                                </p:panelGrid>
+                            </h:form>
+                        </f:view>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

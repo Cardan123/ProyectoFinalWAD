@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">
+            org.postgresql.Driver
+        </property>
+        <property name="connection.url">
+            jdbc:postgresql://ec2-52-54-167-8.compute-1.amazonaws.com/deja1jvn8k993
+        </property>
+        <property name="connection.username">udtgyvrffzmoif</property>
+        <property name="connection.password">99fad350c1ebe63778407aaa771b9ec8be2251eb7079ef9ed791dcf5f80425af</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="hbm2ddl.auto">update</property>
+
+
+        <property name="connection.pool_size">
+            1
+        </property>
+        <property name="hibernate.dbcp.initialSize">
+            5
+        </property>
+        <property name="hibernate.dbcp.maxTotal">
+            20
+        </property>
+        <property name="hibernate.dbcp.maxIdle">
+            10
+        </property>
+        <property name="hibernate.dbcp.maxWaitMillis">
+            -1
+        </property>
+        <!--Aqui inicia la definicion de clases de tipo entidad--> 
+        <mapping class="com.ipn.mx.modelo.entidades.Agencias"/>
+        <mapping class="com.ipn.mx.modelo.entidades.Marcas"/>
+        <mapping class="com.ipn.mx.modelo.entidades.Carros"/>
+        <mapping class="com.ipn.mx.modelo.entidades.Vendedor"/>
+        <mapping class="com.ipn.mx.modelo.entidades.Ventas"/>
+    </session-factory>
+</hibernate-configuration> 
+      
