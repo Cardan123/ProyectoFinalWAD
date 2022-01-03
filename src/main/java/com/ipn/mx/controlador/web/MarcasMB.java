@@ -218,7 +218,7 @@ public class MarcasMB extends BaseBean implements Serializable {
     public void graficar() {
         JFreeChart grafica = ChartFactory.createPieChart("Carros por Marcas", obtenerDatosGraficaProductosPorCategoria(), true, true, Locale.getDefault());
         String archivo = FacesContext.getCurrentInstance().getExternalContext().getRealPath(".grafica.png");
-//        System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRealPath("./grafica.png"));
+        System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRealPath("./grafica.png"));
         HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         try {
